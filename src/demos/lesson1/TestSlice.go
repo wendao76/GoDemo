@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 	var arr [20]int
@@ -22,11 +25,18 @@ func main() {
 	var book Book
 	book.title = "三只小猪"
 	book.prize = 25
-	fmt.Println(book)
+	book.toString()
+
+	var emptySlice = make([]int, 7, 5)
+	fmt.Println(emptySlice)
 
 }
 
 type Book struct {
 	title string
 	prize int
+}
+
+func (book *Book) toString() {
+	fmt.Println("title=" + book.title + "; prize=" + strconv.Itoa(book.prize))
 }

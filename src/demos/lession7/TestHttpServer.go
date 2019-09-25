@@ -1,4 +1,4 @@
-package main
+package lession7
 
 import (
 	"../../controller"

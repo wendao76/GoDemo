@@ -27,9 +27,12 @@ func main() {
 	book.prize = 25
 	book.toString()
 
-	var emptySlice = make([]int, 7, 5)
+	var emptySlice = make([]int, 5, 7)
 	fmt.Println(emptySlice)
 
+	var intArr = [5] int {}
+	var emptySlice2 = intArr[:]
+	fmt.Println(emptySlice2)
 }
 
 type Book struct {

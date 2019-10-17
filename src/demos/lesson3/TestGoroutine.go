@@ -6,13 +6,15 @@ import (
 )
 
 func main() {
-	go t1()
-	fmt.Println(120)
-	time.Sleep(1)
-	fmt.Println("main")
+	var initNum uint32 = 0
+	for i:=0;i<100;i++{
+		go t1(&initNum)
+	}
+	time.Sleep(2)
+	fmt.Println(initNum)
+	fmt.Println("close")
 }
 
-func t1() {
-	fmt.Println("t1")
-	time.Sleep(500)
+func t1(inNum *uint32) {
+	*inNum = *inNum + 1
 }

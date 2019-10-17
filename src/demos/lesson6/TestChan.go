@@ -1,21 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 var count int = 0
 
 func Add(sign chan int) {
-
-	for i := 1; i < 10000000000; i = i + 1 {
-		count = count + 1
-	}
-	fmt.Print(count)
-	sign <- 1
+	fmt.Println("start Add")
+	<-sign
+	fmt.Println("recieve msg")
+	fmt.Println("end Add")
 }
 
 func main() {
 	var sign chan int = make(chan int)
 	go Add(sign)
-	<-sign
-
+	time.Sleep(5 * time.Second)
+	fmt.Println("send msg")
+	sign <- 1
+	time.Sleep(5 * time.Second)
+	fmt.Println("over")
 }

@@ -14,6 +14,11 @@ func Add(sign chan int) {
 	fmt.Println("end Add")
 }
 
+/**
+ 备注：
+	chan<-  写数据
+	<-chan 读数据
+ */
 func main() {
 	var sign chan int = make(chan int)
 	go Add(sign)
